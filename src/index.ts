@@ -41,11 +41,9 @@ interface KuraContent {
 interface KuraCaptureRequest {
   content: string;
   contentType: "text";
-  metadata?: {
-    title?: string;
-    tags?: string[];
-    annotation?: string;
-  };
+  title?: string;
+  annotation?: string;
+  tags?: string[];
 }
 
 // Environment variables validation
@@ -266,14 +264,10 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         const requestBody: KuraCaptureRequest = {
           content,
           contentType: "text",
+          title,
+          annotation,
+          tags,
         };
-
-        if (title || annotation || tags) {
-          requestBody.metadata = {};
-          if (title) requestBody.metadata.title = title;
-          if (annotation) requestBody.metadata.annotation = annotation;
-          if (tags) requestBody.metadata.tags = tags;
-        }
 
         const response = await callKuraAPI("/api/capture", {
           method: "POST",
