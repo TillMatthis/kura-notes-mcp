@@ -58,6 +58,7 @@ if (!API_KEY) {
 }
 
 console.error(`[KURA MCP] Initializing with API URL: ${KURA_API_URL}`);
+console.error(`[KURA MCP] API_KEY present: ${API_KEY ? 'yes' : 'no'}, length: ${API_KEY?.length || 0} chars`);
 
 // Helper function to call KURA API
 async function callKuraAPI(
@@ -65,13 +66,15 @@ async function callKuraAPI(
   options: RequestInit = {}
 ): Promise<Response> {
   const url = `${KURA_API_URL}${endpoint}`;
+  const authHeader = `Bearer ${API_KEY}`;
 
   console.error(`[KURA MCP] API call: ${options.method || "GET"} ${url}`);
+  console.error(`[KURA MCP] Auth header format: Bearer ${API_KEY?.substring(0, 8)}...`);
 
   const response = await fetch(url, {
     ...options,
     headers: {
-      "Authorization": `Bearer ${API_KEY}`,
+      "Authorization": authHeader,
       "Content-Type": "application/json",
       ...options.headers,
     },
