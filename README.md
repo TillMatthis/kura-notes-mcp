@@ -316,7 +316,7 @@ All requests include `Authorization: Bearer {API_KEY}` header.
 
 ## License
 
-MIT
+Please reer to LICENSE
 
 ## Contributing
 
