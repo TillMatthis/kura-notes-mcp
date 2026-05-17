@@ -229,6 +229,7 @@ Check the Claude Desktop logs in the application data directory.
 ```
 kura-mcp-client/
 ├── README.md           # This file
+├── LICENSE             # Elastic License 2.0
 ├── package.json        # Project configuration and dependencies
 ├── tsconfig.json       # TypeScript compiler configuration
 ├── .gitignore          # Git ignore rules
@@ -316,7 +317,9 @@ All requests include `Authorization: Bearer {API_KEY}` header.
 
 ## License
 
-MIT
+This project is licensed under the **Elastic License 2.0 (ELv2)**.
+
+You are free to use, modify, and self-host this software at no cost. However, you may **not** provide it to third parties as a hosted or managed service where users access its features or functionality commercially. See the [LICENSE](LICENSE) file for the full terms.
 
 ## Contributing
 
